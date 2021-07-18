@@ -1,0 +1,13 @@
+192.168.0.108 package_name=httpd  
+192.168.0.109 package_name=httpd
+192.168.0.110 package_name=apache2
+192.168.0.111 package_name=apache2
+
+
+[centos]
+192.168.0.108
+192.168.0.109
+
+[ubuntu]
+192.168.0.110
+192.168.0.111

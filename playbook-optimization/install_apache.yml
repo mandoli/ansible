@@ -1,0 +1,21 @@
+---
+- name: instal apache web server package
+  hosts: all
+  become: yes
+  tasks:
+
+
+  - name: install apache web server package 
+    package:
+      update_cache: yes
+      name: 
+        - "{{package_name}}"
+      state: latest
+
+
+  - name: Start service httpd, if not started
+    service:
+       name: httpd
+       state: started
+    when: ansible_distribution == "CentOS"
+
