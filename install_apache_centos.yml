@@ -1,0 +1,19 @@
+---
+- name: instal apche server on centos servers
+  hosts: centos
+  become: yes
+  tasks:
+
+  - name: update respostry index
+    yum:
+      update_cache: yes
+
+  - name: install httpd package 
+    yum:
+      name: httpd
+      state: latest
+  - name: Start service httpd, if not started
+    service:
+       name: httpd
+       state: started
+

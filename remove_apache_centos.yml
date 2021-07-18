@@ -1,0 +1,20 @@
+---
+- name: remove apche on centos servers
+  hosts: centos
+  become: yes
+  tasks:
+
+  - name: update respostry index
+    yum:
+      update_cache: yes
+  - name: Stop service httpd
+    service:
+      name: httpd
+      state: stopped
+
+  - name: Remove httpd package 
+    yum:
+      name: httpd
+      state: absent
+
+
