@@ -1,0 +1,27 @@
+---
+- name: instal apache web server package
+  hosts: centos
+  become: yes
+  tasks:
+
+
+  - name: install apache web server package 
+    package:
+      update_cache: yes
+      name: httpd
+      state: latest
+
+  - name: copy default html files to sited
+    copy:
+      src: files/default_sites.html
+      dest: /var/www/html/index.html
+      owner: root
+      group: root
+      mode: 0644
+
+  - name: Start service httpd, if not started
+    service:
+       name: httpd
+       state: started
+    when: ansible_distribution == "CentOS"
+
