@@ -7,8 +7,8 @@
   tasks:
   - name: copy files for sudo presmission
     copy:
-       src: ramechan_sudo
-       dest: /etc/sudoers.d/ramechan
+       src: user_sudo
+       dest: /etc/sudoers.d/user_sudo
        owner: root
        group: root
        mode: 0644
