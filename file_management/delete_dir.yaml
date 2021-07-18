@@ -1,0 +1,11 @@
+---
+
+- name: archive module for ansible
+  hosts: centos
+  become: yes
+  
+  tasks:
+  - name: install teraform
+    file:
+       path: /usr/local/bin/terraform
+       state: absent

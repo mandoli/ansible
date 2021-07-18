@@ -1,0 +1,14 @@
+---
+
+- name: adding sudo file for user 
+  hosts: all
+  become: yes
+  
+  tasks:
+  - name: copy files for sudo presmission
+    copy:
+       src: ramechan_sudo
+       dest: /etc/sudoers.d/ramechan
+       owner: root
+       group: root
+       mode: 0644
