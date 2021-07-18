@@ -1,5 +1,5 @@
 ---
-- name: instal apche server on centos servers
+- name: instal apache server on centos servers
   hosts: centos
   become: yes
   tasks:

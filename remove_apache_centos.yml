@@ -1,5 +1,5 @@
 ---
-- name: remove apche on centos servers
+- name: remove apache on centos servers
   hosts: centos
   become: yes
   tasks:
