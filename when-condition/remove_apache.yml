@@ -1,0 +1,24 @@
+---
+- name: remove apache on centos servers
+  hosts: all
+  become: yes
+  tasks:
+
+  - name: update respostry index
+    yum:
+      update_cache: yes
+    when: ansible_distribution == "CentOS"
+
+  - name: Stop service httpd
+    service:
+      name: httpd
+      state: stopped
+    when: ansible_distribution == "CentOS"
+
+  - name: Remove httpd package 
+    yum:
+      name: httpd
+      state: absent
+    when: ansible_distribution == "CentOS"
+
+

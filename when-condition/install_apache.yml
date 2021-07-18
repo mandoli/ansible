@@ -1,0 +1,24 @@
+---
+- name: instal apache server on centos servers
+  hosts: all
+  become: yes
+  tasks:
+
+  - name: update respostry index
+    yum:
+      update_cache: yes
+    when: ansible_distribution == "CentOS"
+
+  - name: install httpd package 
+    yum:
+      name: httpd
+      state: latest
+    when: ansible_distribution == "CentOS"
+
+
+  - name: Start service httpd, if not started
+    service:
+       name: httpd
+       state: started
+    when: ansible_distribution == "CentOS"
+
